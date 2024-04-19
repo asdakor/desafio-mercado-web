@@ -12,6 +12,9 @@ const app = express()
 
 //USAR PUBLIC COMO ARCHIVO ESTATICO
 app.use(express.static('public'));
+app.use('/css', express.static('node_modules/bootstrap/dist/css'))
+app.use('/js', express.static('node_modules/bootstrap/dist/js'))
+app.use('/js', express.static('node_modules/jquery/dist'))
 
 app.engine('.hbs', engine({extname: '.hbs'}));
 app.set('view engine', '.hbs');
@@ -24,7 +27,7 @@ app.listen(PORT, () => {
 
 
 app.get('/', (req,res)=>{
-    res.render('home')
+    res.render('home', {frutas})
 })
 
 
