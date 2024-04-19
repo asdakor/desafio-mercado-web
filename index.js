@@ -27,7 +27,7 @@ app.listen(PORT, () => {
 
 
 app.get('/', (req,res)=>{
-    res.render('home', {frutas})
+    res.render('home', {frutas, msj: 'Bienvenido al mercado WEB, seleccione sus productos'})
 })
 
 
