@@ -1,0 +1,18 @@
+nav{
+    background-color: green;
+    text-align: center;
+    height: 60px;
+}
+nav a{
+    text-align: center;
+}
+nav i{
+    margin: auto;
+    color: white;
+    margin-top: 5px;
+    font-size: 40px;
+}
+
+.container{
+    text-align: center;
+}
