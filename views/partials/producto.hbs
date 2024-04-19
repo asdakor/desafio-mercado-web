@@ -1,1 +1,9 @@
-template correspondiente a cada producto en el dashboard y reciba el parametro
+{{#each frutas}}
+<div class="card col-4">
+    <div class="card-body">
+        <h5 class="card-title">{{this.nombre}}</h5>
+    </div>
+    <img src="./assets/img/{{this.nombre}}.png" class="card-img-top" alt="...">
+</div>
+{{/each}}
+

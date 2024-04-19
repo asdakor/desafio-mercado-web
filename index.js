@@ -1,24 +1,24 @@
 import express from 'express';
 import { engine } from 'express-handlebars';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
 import { frutas } from './public/assets/js/frutas.js';
+import path from 'path';
+const __dirname = import.meta.dirname;
 
 //DECLARACION __DIRNAME PARA ES6
-const __dirname = dirname(fileURLToPath(import.meta.url));
+
 
 //INICIAR EXPRESS
 const app = express()
 
 //USAR PUBLIC COMO ARCHIVO ESTATICO
-app.use(express.static('public'));
-app.use('/css', express.static('node_modules/bootstrap/dist/css'))
-app.use('/js', express.static('node_modules/bootstrap/dist/js'))
-app.use('/js', express.static('node_modules/jquery/dist'))
+app.use(express.static(path.join(__dirname, '/public')));
+app.use('/css', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/css')))
+app.use('/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/js')))
+app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist' )))
 
 app.engine('.hbs', engine({extname: '.hbs'}));
 app.set('view engine', '.hbs');
-app.set('views', './views');
+app.set('views',path.join(__dirname, '/views') );
 //CONFIGURACION DE PUERTO
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
